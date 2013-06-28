@@ -1,7 +1,7 @@
 ubuntu-auto-installer
 =====================
 
-=Requirements:
+Requirements:
 * Ubuntu (preferabbly latest version)
 * Git preinstalled
 
