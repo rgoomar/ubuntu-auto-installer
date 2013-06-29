@@ -1,0 +1,92 @@
+#!/bin/bash
+#############################################
+#######   GitHub Author: rgoomar    #########
+#############################################
+## VIM
+while true; do
+    read -p "Would you like to install VIM?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install vim;;
+        [Nn]* ) echo "Vim not installed";;
+    esac
+## Filezilla
+    read -p "Would you like to install filezilla for FTP?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install filezilla;;
+        [Nn]* ) echo "FileZilla not installed";;
+    esac
+## VLC 
+    read -p "Would you like to install VLC?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install vlc;;
+        [Nn]* ) echo "VLC not installed";;
+    esac
+## Gimp 
+    read -p "Would you like to install Gimp?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install gimp;;
+        [Nn]* ) echo "Gimp not installed";;
+    esac
+## Ubuntu Restricted Extras 
+    read -p "Would you like to install Ubuntu Restricted Extras for media and various file support?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install ubuntu-restricted-extras;;
+        [Nn]* ) echo "Ubuntu restricted extras not installed";;
+    esac
+### Google Chrome (assuming 64-bit) ###
+    read -p "Would you like to install Google Chrome?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install libxss1; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb | sudo dpkg -i;;
+        [Nn]* ) echo "Google Chrome not installed";;
+    esac
+### Skype
+    read -p "Would you like to install Skype?" yn
+    case $yn in
+        [Yy]* ) wget http://download.skype.com/linux/skype-ubuntu-precise_4.2.0.11-1_i386.deb | sudo dpkg -i;;
+        [Nn]* ) echo "Skype not installed";;
+    esac
+### Remove Amazon and unwanted lenses in dashboard 
+    read -p "Would you like to remove unwanted lenses from the dashboard like amazon in your searches?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get autoremove unity-lens-music unity-lens-photos unity-lens-gwibber unity-lens-shopping unity-lens-video;;
+        [Nn]* )
+    esac
+### Disable annoying error messages
+    read -p "Would you like to disable the annoying Ubuntu error messages?" yn
+    case $yn in
+        [Yy]* ) echo "enabled=1" | sudo tee /etc/default/apport;;
+        [Nn]* ) echo "Ubuntu error messages still enabaled.";;
+    esac
+### SPF13-VIM
+    read -p "Would you like to install the spf13 vim package of awesomeness?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install curl; cd $HOME; curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh;;
+        [Nn]* ) echo "spf13 vim package not installed.";;
+    esac
+### Netflix Desktop
+    read -p "Would you like to install Netflix?" yn
+    case $yn in
+        [Yy]* ) sudo apt-add-repository ppa:ehoover/compholio; sudo apt-get update; sudo apt-get install netflix-desktop;;
+        [Nn]* ) echo "Netflix not installed.";;
+    esac
+### Spotify
+    read -p "Would you like to install spotify?" yn
+    case $yn in
+        [Yy]* ) echo "deb http://repository.spotify.com stable non-free" | sudo tee -a /etc/apt/sources.list; sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59; sudo apt-get update; sudo apt-get install spotify-client;;
+        [Nn]* ) echo "Spotify not installed.";;
+    esac
+### HoN 
+    read -p "Would you like to install Heroes of Newerth?" yn
+    case $yn in
+        [Yy]* ) wget http://dl.heroesofnewerth.com/HoNClient-3.1.1.sh | sh;;
+        [Nn]* ) echo "Heroes of Newerth not installed.";;
+    esac
+### Pianobar (Pandora Client) 
+    read -p "Would you like to install pianobar (Pandora Client)?" yn
+    case $yn in
+        [Yy]* ) sudo apt-get install pianobar;;
+        [Nn]* ) echo "Pianobar not installed.";;
+    esac
+    echo "That is the end of the installer script. If you have any suggestions for additions please let me know"
+    exit 
+done
